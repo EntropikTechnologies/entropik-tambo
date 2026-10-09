@@ -1,4 +1,6 @@
 FROM node:22-alpine AS base
+ARG NPM_REGISTRY=https://registry.npmjs.org/
+ENV npm_config_registry=$NPM_REGISTRY
 # ---- base ----
 
 # Match the npm version pinned in the root package.json (npx bypasses broken

@@ -1,0 +1,5 @@
+services:
+  api:
+    build: { args: { NPM_REGISTRY: "https://registry.yarnpkg.com/" } }
+  web:
+    build: { args: { NPM_REGISTRY: "https://registry.yarnpkg.com/" } }
