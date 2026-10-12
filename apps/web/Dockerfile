@@ -58,6 +58,8 @@ ENV TURBO_CACHE_DIR=/workspace/.turbo/cache
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 ARG TURBO_TEAM
 ARG TURBO_API
+ARG NEXT_PUBLIC_TAMBO_API_URL
+ENV NEXT_PUBLIC_TAMBO_API_URL=$NEXT_PUBLIC_TAMBO_API_URL
 
 # Build the application
 RUN --mount=type=secret,id=TURBO_TOKEN,env=TURBO_TOKEN \
