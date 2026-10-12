@@ -62,7 +62,8 @@ ARG NEXT_PUBLIC_TAMBO_API_URL
 ENV NEXT_PUBLIC_TAMBO_API_URL=$NEXT_PUBLIC_TAMBO_API_URL
 
 # Build the application
-RUN --mount=type=secret,id=TURBO_TOKEN,env=TURBO_TOKEN \
+RUN --mount=type=secret,id=TURBO_TOKEN \
+  if [ -f /run/secrets/TURBO_TOKEN ]; then export TURBO_TOKEN="$(cat /run/secrets/TURBO_TOKEN)"; fi; \
   npx turbo run build --filter="@tambo-ai-cloud/web"
 
 # ---- /builder ----
